@@ -1,0 +1,6 @@
+.main {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}

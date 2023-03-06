@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: orange;
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-bar > ul {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 35px;
+}
