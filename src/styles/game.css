@@ -1,6 +1,27 @@
-.main {
-    background-color: pink;
+.game-container {
     display: flex;
     justify-content: center;
-    flex: 1;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.timer {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.image-container {
+    height: auto;
+    max-width: 980px;
+}
+
+.game-image {
+    height: 100%;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.game-image:hover {
+    cursor: pointer;
 }
