@@ -1,6 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import React, {useEffect, useState} from "react";
+import Header from './components/Header';
+import Game from './components/Game';
+import "../src/styles/app.css";
+import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -18,7 +23,11 @@ const db = getFirestore(app);
 
 function App() {
   return (
-    <></>
+    <div className="app">
+    <Header/>
+    <Game/>
+    <Footer/>
+    </div>
   )
 }
 
