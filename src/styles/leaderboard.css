@@ -1,0 +1,16 @@
+.leaderboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-table {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.leaderboard-table > tr > th {
+    font-size: 20px;
+}
