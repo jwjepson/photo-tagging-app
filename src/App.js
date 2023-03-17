@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Game from './components/Game';
 import "../src/styles/app.css";
 import Footer from "./components/Footer";
+import LeaderBoard from './components/LeaderBoard';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -20,12 +21,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const getData = async () => {
+  const waldoCol = collection(db, "waldo");
+  const waldoSnapshot = await getDocs(waldoCol);
+  const waldo = waldoSnapshot.docs.map(doc => doc.data());
+  return waldo;
+}
 
 function App() {
   return (
     <div className="app">
+    <BrowserRouter>
     <Header/>
-    <Game/>
+      <Routes>
+        <Route path="/" element={<Game getData={getData}/>}/>
+        <Route path="/leaderboard" element={<LeaderBoard/>}/>
+      </Routes>
+    </BrowserRouter>
     <Footer/>
     </div>
   )
