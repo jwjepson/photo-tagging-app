@@ -9,9 +9,10 @@ const EndGame = (props) => {
             </div>
             <div className="addToLeaderBoard">
                 <div>Enter your name to save your time to the LeaderBoard</div>
-                <form>
+                <form onSubmit={props.addToLeaderboard}>
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name"></input>
+                    <input type="hidden" name="time" id="time" value={props.time}></input>
                     <button className="addToLeaderBoard-button"type="submit">Add to Leaderboard</button>
                 </form>
             </div>
