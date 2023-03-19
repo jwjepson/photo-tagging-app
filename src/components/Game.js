@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/game.css";
 import Level1 from "../images/cropped.jpg";
 import { click } from "@testing-library/user-event/dist/click";
-import Timer from "./ Timer";
+import Timer from "./Timer";
 
 const Game = (props) => {
 
