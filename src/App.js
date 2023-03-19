@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore/lite";
 import React, {useEffect, useState} from "react";
 import Header from './components/Header';
 import Game from './components/Game';
