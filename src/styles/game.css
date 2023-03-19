@@ -9,6 +9,7 @@
 .timer {
     margin-bottom: 20px;
     font-size: 25px;
+    display: flex;
 }
 
 .image-container {
