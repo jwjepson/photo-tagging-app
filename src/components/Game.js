@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/game.css";
 import Level1 from "../images/cropped.jpg";
 import { click } from "@testing-library/user-event/dist/click";
+import Timer from "./ Timer";
 
 const Game = (props) => {
 
@@ -27,7 +28,7 @@ const Game = (props) => {
     return (
         <>
         <div className="game-container">
-            <div className="timer">Timer: 0:00</div>
+            <Timer/>
             <div className="image-container">
                 <img onClick={handleClick} alt="Game"src={Level1} className="game-image"></img>
             </div>
