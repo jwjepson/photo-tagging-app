@@ -2,25 +2,24 @@ import React, {useEffect, useState} from "react";
 import "../styles/game.css";
 
 
-const Timer = () => {
-    const [time, setTime] = useState(0);
-    const [timerOn, setTimerOn] = useState(true);
+const Timer = (props) => {
+
     useEffect(() => {
         let interval = null;
-        if (timerOn) {
+        if (!props.stopGame) {
             interval = setInterval(() => {
-                setTime(prevTime => prevTime + 1) 
+                props.setTime(prevTime => prevTime + 1) 
             }, 1000)
         } else {
             clearInterval(interval);
         }
 
         return () => clearInterval(interval);
-    }, [timerOn])
+    }, [props.stopGame])
     return (
         <div className="timer">
-            <div>{("0" + Math.floor((time / 60) % 60)).slice(-2)}:</div>
-            <div>{("0" + Math.floor(time % 60)).slice(-2)}</div>
+            <div>{("0" + Math.floor((props.time / 60) % 60)).slice(-2)}:</div>
+            <div>{("0" + Math.floor(props.time % 60)).slice(-2)}</div>
         </div>
     )
 }
