@@ -4,6 +4,7 @@ import Level1 from "../images/cropped.jpg";
 import { click } from "@testing-library/user-event/dist/click";
 import Timer from "./Timer";
 import EndGame from "./EndGame";
+import { collection, addDoc } from "firebase/firestore/lite";
 
 const Game = (props) => {
     const [stopGame, setStopGame] = useState(false);
@@ -27,6 +28,15 @@ const Game = (props) => {
         }
     }
 
+    const addToLeaderboard = async (e) => {
+        e.preventDefault();
+        console.log("Added");
+        await addDoc(collection(props.db, "leaderboard"), {
+            name: e.target.elements.name.value,
+            time: e.target.elements.time.value,
+        });
+    }
+
     return (
         <>
         <div className="game-container">
@@ -36,7 +46,7 @@ const Game = (props) => {
             </div>
         </div>
         {stopGame && (
-            <EndGame time={time}/>
+            <EndGame addToLeaderboard={addToLeaderboard} time={time}/>
         )}
         </>
     )
