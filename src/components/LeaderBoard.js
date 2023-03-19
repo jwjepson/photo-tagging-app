@@ -30,7 +30,7 @@ const LeaderBoard = (props) => {
                     {leaderBoard.map(user => (
                         <tr key={user.index}>
                             <td>{user.name}</td>
-                            <td>{user.time}</td>
+                            <td>{user.time} seconds</td>
                         </tr>
                     ))}
                 </tbody>
