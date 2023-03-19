@@ -34,8 +34,8 @@ function App() {
     <BrowserRouter>
     <Header/>
       <Routes>
-        <Route path="/" element={<Game getData={getData}/>}/>
-        <Route path="/leaderboard" element={<LeaderBoard/>}/>
+        <Route path="/" element={<Game db={db} getData={getData}/>}/>
+        <Route path="/leaderboard" element={<LeaderBoard db={db}/>}/>
       </Routes>
     </BrowserRouter>
     <Footer/>
