@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../styles/game.css";
 import Level1 from "../images/cropped.jpg";
-import { click } from "@testing-library/user-event/dist/click";
 import Timer from "./Timer";
 import EndGame from "./EndGame";
-import { collection, addDoc } from "firebase/firestore/lite";
+import { collection, addDoc, getDocs } from "firebase/firestore/lite";
 
 const Game = (props) => {
     const [stopGame, setStopGame] = useState(false);
     const [time, setTime] = useState(0);
+    const [waldoCoords, setWaldoCoords] = useState();
 
     const handleClick = (e) => {
         let x = (e.nativeEvent.offsetX / e.target.clientWidth).toFixed(2);
@@ -17,11 +17,8 @@ const Game = (props) => {
         checkAnswer(selectedCoords);
     }
 
-    const checkAnswer = async (selectedCoords) => {
-        let data = await props.getData();
-        const coords = data[0]["x-coord"];
-        
-        if (coords.includes(selectedCoords)) {
+    const checkAnswer = async (selectedCoords) => {    
+        if (waldoCoords.includes(selectedCoords)) {
             setStopGame(true);
         } else {
             console.log("No");
@@ -40,6 +37,16 @@ const Game = (props) => {
         setStopGame(false);
         setTime(0);
     }
+
+    useEffect(() => {
+        const getData = async () => {
+            const waldoCol = collection(props.db, "waldo");
+            const waldoSnapshot = await getDocs(waldoCol);
+            const waldo = waldoSnapshot.docs.map(doc => doc.data());
+            setWaldoCoords(waldo[0]["x-coord"]);
+          }
+          getData();
+    }, [props.db]);
 
     return (
         <>
