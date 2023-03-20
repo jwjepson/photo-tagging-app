@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const EndGame = (props) => {
     return (
@@ -15,7 +16,12 @@ const EndGame = (props) => {
                     <input type="hidden" name="time" id="time" value={props.time}></input>
                     <button className="addToLeaderBoard-button" type="submit">Add to Leaderboard</button>
                 </form>
-                <button onClick={props.restartGame} className="cancel-button" type="button">Cancel</button>
+                <div className="end-game-options">
+                    <Link to="/">
+                        <button className="cancel-button" type="button">Return Home</button>
+                    </Link>
+                    <button onClick={props.restartGame} className="cancel-button" type="button">Restart</button>
+                </div>
             </div>
         </div>
     )
