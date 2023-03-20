@@ -103,3 +103,9 @@ form > input {
     color: white;
     border-radius: 10px;
 }
+
+.end-game-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
