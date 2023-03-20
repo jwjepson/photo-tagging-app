@@ -30,13 +30,16 @@ const getData = async () => {
 }
 
 function App() {
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  
   return (
     <div className="app">
     <BrowserRouter>
     <Header/>
       <Routes>
-        <Route path="/" element={<GameMenu/>}/>
-        <Route path="/play" element={<Game db={db} getData={getData}/>}/>
+        <Route path="/" element={<GameMenu setAlertMessage={setAlertMessage} alertMessage={alertMessage} setShowAlert={setShowAlert} showAlert={showAlert}/>}/>
+        <Route path="/play" element={<Game setShowAlert={setShowAlert} setAlertMessage={setAlertMessage} db={db} getData={getData}/>}/>
         <Route path="/leaderboard" element={<LeaderBoard db={db}/>}/>
       </Routes>
     </BrowserRouter>
