@@ -7,6 +7,7 @@ import "../src/styles/app.css";
 import Footer from "./components/Footer";
 import LeaderBoard from './components/LeaderBoard';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GameMenu from './components/GameMenu';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -34,7 +35,8 @@ function App() {
     <BrowserRouter>
     <Header/>
       <Routes>
-        <Route path="/" element={<Game db={db} getData={getData}/>}/>
+        <Route path="/" element={<GameMenu/>}/>
+        <Route path="/play" element={<Game db={db} getData={getData}/>}/>
         <Route path="/leaderboard" element={<LeaderBoard db={db}/>}/>
       </Routes>
     </BrowserRouter>
