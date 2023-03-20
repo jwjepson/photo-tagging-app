@@ -29,12 +29,15 @@ const Game = (props) => {
     }
 
     const addToLeaderboard = async (e) => {
-        e.preventDefault();
-        console.log("Added");
         await addDoc(collection(props.db, "leaderboard"), {
             name: e.target.elements.name.value,
             time: e.target.elements.time.value,
         });
+    }
+
+    const restartGame = () => {
+        setStopGame(false);
+        setTime(0);
     }
 
     return (
@@ -46,7 +49,7 @@ const Game = (props) => {
             </div>
         </div>
         {stopGame && (
-            <EndGame addToLeaderboard={addToLeaderboard} time={time}/>
+            <EndGame restartGame={restartGame} addToLeaderboard={addToLeaderboard} time={time}/>
         )}
         </>
     )
