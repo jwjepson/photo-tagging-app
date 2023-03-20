@@ -12,7 +12,7 @@ const EndGame = (props) => {
                 <div>Enter your name to save your time to the LeaderBoard</div>
                 <form onSubmit={props.addToLeaderboard}>
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name"></input>
+                    <input autocomplete="off" type="text" name="name" id="name"></input>
                     <input type="hidden" name="time" id="time" value={props.time}></input>
                     <button className="addToLeaderBoard-button" type="submit">Add to Leaderboard</button>
                 </form>
