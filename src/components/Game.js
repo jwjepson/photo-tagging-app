@@ -4,11 +4,13 @@ import Level1 from "../images/cropped.jpg";
 import Timer from "./Timer";
 import EndGame from "./EndGame";
 import { collection, addDoc, getDocs } from "firebase/firestore/lite";
+import { useNavigate } from "react-router-dom";
 
 const Game = (props) => {
     const [stopGame, setStopGame] = useState(false);
     const [time, setTime] = useState(0);
     const [waldoCoords, setWaldoCoords] = useState();
+    const navigate = useNavigate();
 
     const handleClick = (e) => {
         let x = (e.nativeEvent.offsetX / e.target.clientWidth).toFixed(2);
@@ -31,6 +33,9 @@ const Game = (props) => {
             name: e.target.elements.name.value,
             time: parseInt(e.target.elements.time.value),
         });
+        props.setShowAlert(true);
+        props.setAlertMessage("Added to Leaderboard!");
+        navigate("/");
     }
 
     const restartGame = () => {
