@@ -7,7 +7,9 @@ import homeIcon from "../icons/home.svg";
 const Header = () => {
     return (
         <div className="header">
-            <h1 className="logo"><span>WHERE'S</span> <span>WALDO?</span></h1>
+            <Link to="/">
+                <h1 className="logo"><span>WHERE'S</span> <span>WALDO?</span></h1>
+            </Link>
             <div className="nav-bar">
                 <ul>
                     <Link to="/">
