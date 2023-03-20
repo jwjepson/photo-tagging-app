@@ -72,6 +72,11 @@
     border-radius: 10px;
 }
 
+.addToLeaderBoard-button:hover, .cancel-button:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .gameOverMessage {
     font-size: 30px;
 }
@@ -89,4 +94,12 @@ form > input {
     border: none;
     height: 30px;
     width: 200px;
+}
+
+.cancel-button {
+    background-color: gray;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
 }
