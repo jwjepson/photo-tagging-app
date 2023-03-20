@@ -13,8 +13,9 @@ const EndGame = (props) => {
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name"></input>
                     <input type="hidden" name="time" id="time" value={props.time}></input>
-                    <button className="addToLeaderBoard-button"type="submit">Add to Leaderboard</button>
+                    <button className="addToLeaderBoard-button" type="submit">Add to Leaderboard</button>
                 </form>
+                <button onClick={props.restartGame} className="cancel-button" type="button">Cancel</button>
             </div>
         </div>
     )
