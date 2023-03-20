@@ -29,9 +29,10 @@ const Game = (props) => {
     }
 
     const addToLeaderboard = async (e) => {
+        e.preventDefault();
         await addDoc(collection(props.db, "leaderboard"), {
             name: e.target.elements.name.value,
-            time: e.target.elements.time.value,
+            time: parseInt(e.target.elements.time.value),
         });
     }
 
