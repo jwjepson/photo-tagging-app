@@ -29,13 +29,19 @@ const Game = (props) => {
 
     const addToLeaderboard = async (e) => {
         e.preventDefault();
-        await addDoc(collection(props.db, "leaderboard"), {
-            name: e.target.elements.name.value,
-            time: parseInt(e.target.elements.time.value),
-        });
-        props.setShowAlert(true);
-        props.setAlertMessage("Added to Leaderboard!");
-        navigate("/");
+        if (e.target.elements.name.value === "") {
+            props.setShowAlert(true);
+            props.setAlertMessage("Failed to add. Name is required");
+            navigate("/");
+        } else {
+            await addDoc(collection(props.db, "leaderboard"), {
+                name: e.target.elements.name.value,
+                time: parseInt(e.target.elements.time.value),
+            });
+            props.setShowAlert(true);
+            props.setAlertMessage("Added to Leaderboard!");
+            navigate("/");
+        }
     }
 
     const restartGame = () => {
