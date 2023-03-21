@@ -21,7 +21,7 @@ const LeaderBoard = (props) => {
             }, 300);
         }
         getData();
-    }, []);
+    }, [props.db]);
 
     return (
         <div className="leaderboard-container">
