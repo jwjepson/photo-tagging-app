@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "../styles/gamemenu.css";
 import waldoImage from "../images/waldo-image.png";
 import { Link } from "react-router-dom";
