@@ -109,3 +109,8 @@ form > input {
     gap: 20px;
     margin-top: 15px;
 }
+
+input[name="name"]:focus {
+    outline: none;
+    text-indent: 5px;
+}
